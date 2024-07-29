@@ -10,12 +10,12 @@ export default class EVcar extends Car {
     return this._range;
   }
 
-  // Setter para range
+  // Setter for range
   set range(newRange) {
     this._range = newRange;
   }
 
-  // Override de cloneCar para devolver una instancia de Car
+  // Override cloneCar for return instans to Car
   cloneCar() {
     return new Car(this._brand, this._motor, this._color);
   }
