@@ -3,7 +3,7 @@ import Currency from './3-currency';
 export default class Pricing {
   constructor(amount, currency) {
     this._amount = Pricing._ValidateAmount(amount);
-    this._currency = Pricing._Validatecurrency(currency);
+    this._currency = Pricing._ValidateCurrency(currency);
   }
 
   // Get & set for amount
@@ -21,7 +21,7 @@ export default class Pricing {
   }
 
   set currency(newCurrency) {
-    this._currency = Pricing._Validatecurrency(newCurrency);
+    this._currency = Pricing._ValidateCurrency(newCurrency);
   }
 
   // For display price
