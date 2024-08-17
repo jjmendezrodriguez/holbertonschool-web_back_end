@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+This module provides a function to zoom into an array by
+repeating its elements. It includes a function that takes
+a tuple and returns a list where each element of the tuple
+is repeated a specified number of times.
+"""
 from typing import List, Tuple
 
 
