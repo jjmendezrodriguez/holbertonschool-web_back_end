@@ -48,8 +48,9 @@ The project includes several practical examples and exercises that cover the fol
 
 To verify the type annotations in this project, use `mypy`:
 
-`bash`
-`mypy 102-type_checking.py`
+bash
+
+    `mypy 102-type_checking.py`
 
 # Python - Variable Annotations
 
