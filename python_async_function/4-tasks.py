@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-This module provides an asynchronous routine to spawn multiple
-task_wait_random tasks and collect their results in ascending
-order without using sort().
+This module provides a function to create and execute multiple asyncio tasks
+using task_wait_random and return the results in ascending order.
 """
 
-from typing import List
 import asyncio
+from typing import List
 
 task_wait_random = __import__('3-tasks').task_wait_random
 
@@ -23,14 +22,11 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     Returns:
         List[float]: A list of delays in ascending order.
     """
+    # Create a list of tasks by calling task_wait_random n times with max_delay
     tasks = [task_wait_random(max_delay) for _ in range(n)]
-    delays = await asyncio.gather(*tasks)
-    
-    # Return the delays sorted in ascending order without using sort()
-    ordered_delays = []
-    while delays:
-        min_delay = min(delays)
-        ordered_delays.append(min_delay)
-        delays.remove(min_delay)
 
-    return ordered_delays
+    # Wait for all tasks to complete and gather their results
+    delays = await asyncio.gather(*tasks)
+
+    # Return the delays sorted in ascending order
+    return sorted(delays)
