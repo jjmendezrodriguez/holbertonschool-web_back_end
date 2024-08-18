@@ -16,7 +16,9 @@ async def wait_random(max_delay: int = 10) -> float:
     Returns:
         float: The actual delay time.
 
-    This coroutine generates a random floating-point number between 0 and max_delay, waits asynchronously for that many seconds, and then returns the delay value.
+    This coroutine generates a random floating-point number between
+    0 and max_delay, waits asynchronously for that many seconds,
+    and then returns the delay value.
     """
     delay = random.uniform(0, max_delay)
     await asyncio.sleep(delay)
