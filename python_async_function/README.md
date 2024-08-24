@@ -52,7 +52,7 @@ Asynchronous functions are useful when you have tasks that can be done concurren
 
 Let's say you want to download data from several websites at the same time. You can do this using asynchronous functions:
 
-            import asyncio
+    import asyncio
     import aiohttp
 
     async def fetch_data(url):
@@ -77,11 +77,11 @@ Let's say you want to download data from several websites at the same time. You 
  - `asyncio.gather(*tasks)`: Runs all tasks concurrently and collects the results.
 
 ## Recap: How to Make Your Own Asynchronous Functions
- 1. Use async def to create your function.
+ 1. Use `async` def to create your function.
 
- 2. Use await to pause your function when needed.
+ 2. Use `await` to pause your function when needed.
 
- 3. Use asyncio.run() to start your asynchronous functions.
+ 3. Use `asyncio.run()` to start your asynchronous functions.
 
 ### Practice
 Try writing your own asynchronous functions. Start by creating simple functions that wait for a few seconds and then print messages. Gradually, you can move on to more complex tasks like downloading files, reading large datasets, or making API calls.
