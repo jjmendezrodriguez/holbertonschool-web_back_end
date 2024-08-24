@@ -13,18 +13,11 @@ async_comprehension four times in parallel.
 
 
 async def measure_runtime() -> float:
-    """
-    Measure the total runtime of running async_comprehension four
-    times in parallel.
+    """function executes parallel four times and
+    measures the runtime"""
 
-    This coroutine uses asyncio.gather to run async_comprehension four times
-    concurrently. It measures and returns the total time taken for the
-    concurrent execution.
-
-    Returns:
-        The total runtime in seconds as a float.
-    """
-    start_time = time.perf_counter()
-    await asyncio.gather(*(async_comprehension() for _ in 4))
-    end_time = time.perf_counter()
+    start_time = time.time()
+    tasks = [task_1_async() for _ in range(4)]
+    await asyncio.gather(*tasks)
+    end_time = time.time()
     return end_time - start_time
