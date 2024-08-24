@@ -52,22 +52,22 @@ Asynchronous functions are useful when you have tasks that can be done concurren
 
 Let's say you want to download data from several websites at the same time. You can do this using asynchronous functions:
 
-        import asyncio
-import aiohttp
+            import asyncio
+    import aiohttp
 
-async def fetch_data(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            return await response.text()
+    async def fetch_data(url):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                return await response.text()
 
-async def main():
-    urls = ['https://example.com', 'https://example.org', 'https://example.net']
-    tasks = [fetch_data(url) for url in urls]
-    data = await asyncio.gather(*tasks)
-    for content in data:
-        print(f"Downloaded {len(content)} characters.")
+    async def main():
+        urls = ['https://example.com', 'https://example.org', 'https://example.net']
+        tasks = [fetch_data(url) for url in urls]
+        data = await asyncio.gather(*tasks)
+        for content in data:
+            print(f"Downloaded {len(content)} characters.")
 
-asyncio.run(main())
+    asyncio.run(main())
 
 ### Explanation:
  - `async def fetch_data(url)`: Defines an asynchronous function that fetches data from a URL.
