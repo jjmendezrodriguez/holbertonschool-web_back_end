@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """simple func for pagination"""
-from typing import Tuple
+from typing import Tuple, List
 import csv
 import math
 
