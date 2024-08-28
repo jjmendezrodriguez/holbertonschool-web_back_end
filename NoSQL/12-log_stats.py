@@ -10,22 +10,21 @@ def log_stats():
     """
     # Conectar a la base de datos MongoDB
     client = MongoClient('mongodb://127.0.0.1:27017')
-    db = client.logs
-    collection = db.nginx
+    nginx_collection = client.logs.nginx
 
-    # Contar el número total de logs
-    total_logs = collection.count_documents({})
-    print(f"{total_logs} logs")
+    # count total number of logs
+    log_count = nginx_collection.count_documents({})
+    print(f"{log_count} logs")
 
-    # Contar el número de logs por método HTTP
+    # count by HTTP methods
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("Methods:")
     for method in methods:
-        count = collection.count_documents({"method": method})
-        print(f"\tmethod {method}: {count}")
+        method_count = nginx_collection.count_documents({"method": method})
+        print(f"\tmethod {method}: {method_count}")
 
-    # Contar el número de logs con method=GET y path=/status
-    status_check = collection.count_documents(
+    # count the number of GET requests with path /status
+    status_check = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"}
         )
     print(f"{status_check} status check")
