@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Python function that inserts a new document in a collection based on kwargs"""
 from pymongo import MongoClient
 
 
@@ -15,7 +16,6 @@ def insert_school(mongo_collection, **kwargs):
     Returns:
     ObjectId: The _id of the inserted document.
     """
-    # Insert the document and get the insert result
+
     result = mongo_collection.insert_one(kwargs)
-    # Return the _id of the inserted document
     return result.inserted_id
